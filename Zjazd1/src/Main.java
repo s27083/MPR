@@ -64,21 +64,21 @@ public class Main {
         Integer ageSum1 = immutalbePersonList.stream().map(p -> p.getAge()).reduce(0,(sum, value)-> sum + value);
         System.out.println("Suma srednia chain" + ageSum1);
 
-        // 4.2
+    // 4.2
         List<String> nameList = immutalbePersonList.stream().map(Person::getName).collect(Collectors.toList());
         System.out.println("List imion"+ nameList);
-        // 4.3
-            List<Person> oldAgeList = immutalbePersonList.stream().filter(p -> p.getAge() > 25).collect(Collectors.toList());
-            System.out.println("List osob powyzej 25 roku zycia"+ oldAgeList);
-        // 4.4
-            List<Person> sortedPersonList = immutalbePersonList.stream().sorted(Comparator.comparing(Person::getName)).collect(Collectors.toList());
-            System.out.println("Posortowana list osob"+ sortedPersonList);
-        // 4.5
-            immutalbePersonList.stream().forEach(System.out::println);
-        // 4.6
-            Person oldestPerson = immutalbePersonList.stream().max(Comparator.comparing(Person::getAge)).orElseThrow();
-            System.out.println("Najstarsza osoba" + oldestPerson);
-            Person youngestPerson = immutalbePersonList.stream().min(Comparator.comparing(Person::getAge)).orElseThrow();
-            System.out.println("Najmlodsza osoba" + youngestPerson);
+    // 4.3
+        List<Person> oldAgeList = immutalbePersonList.stream().filter(p -> p.getAge() > 25).collect(Collectors.toList());
+        System.out.println("List osob powyzej 25 roku zycia"+ oldAgeList);
+    // 4.4
+        List<Person> sortedPersonList = immutalbePersonList.stream().sorted(Comparator.comparing(Person::getName)).collect(Collectors.toList());
+        System.out.println("Posortowana list osob"+ sortedPersonList);
+    // 4.5
+        immutalbePersonList.stream().forEach(System.out::println);
+    // 4.6
+        Person oldestPerson = immutalbePersonList.stream().max(Comparator.comparing(Person::getAge)).orElseThrow();
+        System.out.println("Najstarsza osoba" + oldestPerson);
+        Person youngestPerson = immutalbePersonList.stream().min(Comparator.comparing(Person::getAge)).orElseThrow();
+        System.out.println("Najmlodsza osoba" + youngestPerson);
     }
 }
