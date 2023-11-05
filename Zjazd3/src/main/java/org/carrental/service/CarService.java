@@ -21,7 +21,7 @@ public class CarService {
 
     public Car createCar(Car car){
         logger.info("Validating car data");
-        if (car.getMake().isBlank()) {
+        if (car.getMake() == null || car.getMake().isBlank()) {
             throw new ValidationException("cannot be blank","make");
         }
         if (car.getVin().length() > 3) {
@@ -43,8 +43,11 @@ public class CarService {
 
     public Car updateModel (Integer id, String model) {
         logger.info("Updating car");
-        if (model.isBlank()) throw new ValidationException("cannot be blaknk","model");
+        if (model == null || model.isBlank()) throw new ValidationException("cannot be blaknk","model");
        return carRepository.updateModel(id,model).orElseThrow(()-> new CarNotFoundException("car does not exist"));
 
+    }
+    public List<Car> getAll() {
+        return carRepository.getAll();
     }
 }

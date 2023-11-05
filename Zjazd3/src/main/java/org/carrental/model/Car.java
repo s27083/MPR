@@ -10,9 +10,7 @@ public class Car {
     private String make;
     private String model;
     private String vin;
-
     private CarClass carClass;
-
-
     private CarStatus status;
+    private Double dailyRate;
 }
